@@ -1,0 +1,1 @@
+kubectl config set-credentials $SERVICE_ACCOUNT --token=$TOKEN
