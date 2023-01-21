@@ -2,21 +2,19 @@ package web
 
 import (
 	"fmt"
-	"github.com/tonnytg/webreq"
-	"log"
+	"net/http"
 )
 
-func Start(url string) {
+func Start(url string, token string) {
 
-	headers := webreq.NewHeaders()
-	headers.Add("Content-Type", "application/json")
-
-	request := webreq.Builder("GET")
-	request.SetURL(url)
-
-	body, err := request.Execute()
+	h := http.Header{}
+	h.Add("Content-Type", "application/json")
+	h.Add("Authorization", fmt.Sprintf("Bearer %s", token))
+	body, err := http.Get(url)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
+
 	fmt.Printf("%s", body)
+
 }
