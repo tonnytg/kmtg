@@ -15,6 +15,9 @@ import (
 func Start(url string) {
 
 	token := os.Getenv("TOKEN")
+	if token == "" {
+		panic("TOKEN is required")
+	}
 
 	h := http.Header{}
 	h.Add("Content-Type", "application/json")
