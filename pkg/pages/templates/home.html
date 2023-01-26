@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<!--Build Home to receive data from Go-->
+<h1>{{.Title}}</h1>
+<p>{{.Body}}</p>
+    <div id="container">
+        <table>
+            <tr>
+                <th>Pod Name</th>
+                <th>Pod IP</th>
+                <th>Pod Status</th>
+            </tr>
+            {{range .Pods}}
+            <tr>
+                <td>{{.Name}}</td>
+                <td>{{.IP}}</td>
+                <td>{{.Status}}</td>
+            </tr>
+            {{end}}
+        </table>
+    </div>
+</body>
+</html>
