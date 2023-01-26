@@ -10,7 +10,7 @@ Set token for user `api-explorer`
 
 Export Token
 
-    TOKEN=$(kubectl describe secret $(kubectl get secrets | grep api-explorer | awk '{print $1}') | grep -E '^token' | awk '{print $2}')
+    export TOKEN=$(kubectl describe secret $(kubectl get secrets | grep api-explorer | awk '{print $1}') | grep -E '^token' | awk '{print $2}')
 
 Create CA Certificate
 
